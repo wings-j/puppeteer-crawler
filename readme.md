@@ -1,9 +1,9 @@
-# crawler
+# puppeteer-crawler
 
-Node 爬虫。
+基于[puppeteer](https://www.npmjs.com/package/puppeteer)的 Node 爬虫。
 
-## 目录层级
+## 安装
 
-1. application：应用
-2. component：组件
-3. part：部件
+```sh
+npm install @wings-j/puppeteer-crawler
+```
