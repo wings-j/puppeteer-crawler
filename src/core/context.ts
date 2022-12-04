@@ -1,13 +1,19 @@
-import { Browser, launch } from 'puppeteer'
-import { Tab } from '../modules/tab'
+import { Browser, launch, PuppeteerLaunchOptions } from 'puppeteer'
+import { Tab } from '../modules/tab.js'
+
+/**
+ * 选项
+ */
+interface LaunchOptions {
+  parallel: number
+}
 
 /**
  * 上下文
  */
 class Context {
   browser!: Browser
-  headless: boolean
-  parallel: number
+  options: LaunchOptions
   pool: Set<Tab> = new Set()
 
   /**
@@ -15,17 +21,36 @@ class Context {
    * @param headless 无头
    * @param parallel 并行数
    */
-  constructor({ headless = true, parallel = 10 } = {}) {
-    this.headless = headless
-    this.parallel = parallel
+  constructor(options?: Partial<LaunchOptions>) {
+    this.options = Object.assign(
+      {
+        parallel: 10
+      },
+      options
+    )
   }
 
   /**
    * 启动
    * @description 使用前必须启动
+   * @param options 选项
    */
-  async launch() {
-    this.browser = await launch({ ignoreHTTPSErrors: true, headless: this.headless })
+  async launch(options?: PuppeteerLaunchOptions) {
+    this.browser = await launch(
+      Object.assign(
+        {
+          ignoreHTTPSErrors: true
+        },
+        options
+      )
+    )
+  }
+
+  /**
+   * 退出
+   */
+  async exit() {
+    await this.browser.close()
   }
 
   /**

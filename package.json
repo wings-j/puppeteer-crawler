@@ -1,7 +1,7 @@
 {
   "name": "@wings-j/puppeteer-crawler",
-  "version": "0.0.0",
-  "description": "Puppeteer 爬虫",
+  "version": "1.0.0",
+  "description": "Puppeteer crawler",
   "author": "WingsJ",
   "type": "module",
   "main": "dist/index.js",
