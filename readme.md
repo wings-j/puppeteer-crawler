@@ -54,13 +54,17 @@ Parameters:
 
 - `options`: launch options
 
-#### `async launch(options?: PuppeteerLaunchOptions): void`
+#### `async launch(options?: PuppeteerLaunchOptions): Promise<void>`
 
 Launch the browser, must be invoked before using other methods.
 
 Parameters:
 
 - options: 选项。[PuppeteerLaunchOptions](https://pptr.dev/api/puppeteer.puppeteerlaunchoptions).
+
+#### `async close(): Promise<void>`
+
+Close browser.
 
 #### `async createTab(): Tab`
 
@@ -80,13 +84,36 @@ Members:
 
 ### `Tab`
 
-#### `async open(url: string): void`
+#### `async open(url: string): Promise<void>`
 
 Open the page of the url.
 
 Parameters:
 
 - `url`: URL
+
+#### `async close(): Promise<void>`
+
+Close page.
+
+#### `async wait(min?: number, max?: number): Promise<void>`
+
+Wait for network idle and once render.
+
+Parameters:
+
+- `min`: minium time
+- `max`: maximum time
+
+#### `async scroll({ y = 0, delta = false, smooth = false }): Promise<void>`
+
+Scroll the window.
+
+Parameters:
+
+- y: vertical axis position
+- delta: increment
+- smooth: smooth scrolling
 
 #### `async getHandle(selector: string, xpath?: boolean): Promise<Handle|undefined>`
 
