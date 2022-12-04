@@ -1,6 +1,6 @@
 {
   "name": "@wings-j/puppeteer-crawler",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Puppeteer crawler",
   "author": "WingsJ",
   "type": "module",

@@ -11,7 +11,7 @@ npm install @wings-j/puppeteer-crawler
 Example:
 
 ```ts
-import { Context, Handle } from '../dist/index.js'
+import { Context } from '@wings-j/puppeteer-crawler'
 import { promises as Fs } from 'fs'
 
 let context = new Context()
