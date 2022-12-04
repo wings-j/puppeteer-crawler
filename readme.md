@@ -1,5 +1,3 @@
-# puppeteer-crawler
-
 Crawler based on [puppeteer](https://www.npmjs.com/package/puppeteer).
 
 ## Usage
